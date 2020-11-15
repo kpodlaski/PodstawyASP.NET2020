@@ -33,7 +33,7 @@ namespace App1
             //p.Text = "Ala ma kota";
             Console.WriteLine(p.Text + " " + p.LiczbaA * p.LiczbaB + "::" + p);
 
-            Student studentA = new Student("Alan", "Alanowski", 20);
+            Student studentA = new Student("Edward", "Alanowski", 20);
             Student studentB = new Student("Alice", "Alicewska", 19);
             Console.WriteLine(studentA);
             Console.WriteLine(studentB);
@@ -41,19 +41,35 @@ namespace App1
             List<Student> studenci = new List<Student>();
             studenci.Add(studentA);
             studenci.Add(studentB);
-            studenci.Add(new Student("Tom", "Toaszewski", 24));
+            studenci.Add(new Student("Tom", "Tomaszewski", 24));
             Console.WriteLine("===========================");
             //Console.WriteLine(studenci);
             foreach (Student st in studenci ){
                 Console.WriteLine(st);
             }
             Console.WriteLine("===========================");
-            for(int i=0; i<studenci.Count; i++)
+            for (int i = 0; i < studenci.Count; i++)
             {
                 Console.WriteLine(studenci[i]);
             }
             //delete studentA; W C# niszczenie robi .NET
-
+            studenci.Sort();
+            Console.WriteLine("====Po Sortowaniu========");
+            for (int i = 0; i < studenci.Count; i++)
+            {
+                Console.WriteLine(studenci[i]);
+            }
+            /*studentA.ZapiszDoPliku("plik.txt");
+            studentB.ZapiszDoPliku("plik.txt");
+            studentA.DodajDoPliku("plik_a.txt");
+            studentB.DodajDoPliku("plik_a.txt");
+            */
+            studenci.Sort(Person.comparerByName());
+            Console.WriteLine("====Po Sortowaniu po Name==");
+            for (int i = 0; i < studenci.Count; i++)
+            {
+                Console.WriteLine(studenci[i]);
+            }
         }
     }
 }
